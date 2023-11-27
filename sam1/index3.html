@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap&#39;);
+    body{
+        font-family: 'poppins';
+    }
+    </style>
+    <body>
+       
+        <div class="container">
+            <div class="row" id="posts">
+    
+            </div>
+        </div>
+    
+    
+    <script>
+    
+    
+       
+    
+    
+        fetch('https://jsonplaceholder.typicode.com/photos').then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            console.log(data[0])
+    
+            for (let index = 0; index < data.length; index++) {
+           
+               
+           
+            var newDiv = document.createElement("div");
+            newDiv.className = "col-md-3 mb-5"
+    
+    
+        var newImg = document.createElement("img");
+        newImg.src = data[index].url;
+        newImg.width = 200;
+        newImg.height = 200;
+        newImg.className = "img-fluid"
+     
+        var newHeader = document.createElement("h2");
+        newHeader.innerHTML = data[index].title
+       
+        var newDiscription = document.createElement("p");
+        newDiscription.innerHTML = "If you're developing an application, you'll want to make sure you're testing it under conditions that closely simulate a production environment. In production, you'll have an army of users banging away at your app and filling your database with data, which puts stress on your code. If you're hand-entering data into a test environment one record at a time using the UI, you're never going to build up the volume and variety  "
+       
+        var newButton  = document.createElement("button");
+        newButton.innerHTML = "Read More"
+        newButton.className="btn btn-primary btn-sm"
+    
+        newDiv.append(newImg)
+        newDiv.append(newHeader)
+        newDiv.append(newDiscription)
+        newDiv.append(newButton)
+    
+        // document.body.append(newDiv)
+    
+        document.getElementById("posts").append(newDiv);
+    
+    
+    
+            }
+        }
+        )
+    
+    </script>
+    
+    
+    
+    </body>
+    </html>
+</body>
+</html>
